@@ -1,8 +1,12 @@
-#include "quicksort.h"
+/* iaed24 - ist1105865 - quicksort.c */
 #include <string.h>
 #include <stdlib.h>
-#include "main.h"
+#include <stdio.h>
 
+#include "quicksort.h"
+#include "parser.h"
+#include "input.h"
+#include "system.h"
 
 void swap_logs(Log **logs, int i, int j) {
     Log *temp = logs[i];
@@ -11,6 +15,12 @@ void swap_logs(Log **logs, int i, int j) {
 }
 
 int partition_logs(Log **logs, int low, int high) {
+    
+    if (logs == NULL) {
+        printf("Invalid logs.\n");
+        return -1;
+    }
+    
     Log *pivot = logs[high];
     int i = low - 1;
 
